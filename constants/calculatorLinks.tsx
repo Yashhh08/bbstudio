@@ -11,7 +11,7 @@ export const calculatorLinks: CalculatorLink[] = [
     path: "https://bombayblokes.com/website-cost/",
   },
   {
-    icon: "/assets/images/Performance-calculator.png",
+    icon: "/assets/images/performance-calculator.png",
     name: "Performance Calculator",
     path: "https://bombayblokes.com/performance-marketing-calculator/",
   },
