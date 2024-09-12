@@ -44,7 +44,7 @@ const Navbar = () => {
                     </span>
                   </p>
 
-                  <div className="hidden z-10 group-hover/main:flex transition-all bg-gradient-to-b from-white to-yellow-100 w-[400px] h-fit absolute left-[50%] top-8 transform translate-x-[-20%] rounded-xl flex-col gap-1">
+                  <div className="hidden z-10 group-hover/main:flex transition-all bg-gradient-to-b from-white to-yellow-100 w-[400px] h-fit absolute left-[50%] top-8 transform translate-x-[-20%] rounded-xl flex-col gap-0 animate-fade-in">
                     {workLinks.map((workLink) => {
                       return (
                         <Link
@@ -85,7 +85,7 @@ const Navbar = () => {
                     </span>
                   </p>
 
-                  <div className="hidden z-10 group-hover/main:flex transition-all bg-gradient-to-b from-white to-yellow-100 w-[400px] h-fit absolute left-[50%] top-9 transform translate-x-[-20%] rounded-xl flex-col gap-0">
+                  <div className="hidden z-10 group-hover/main:flex transition-all bg-gradient-to-b from-white to-yellow-100 w-[400px] h-fit absolute left-[50%] top-9 transform translate-x-[-20%] rounded-xl flex-col gap-0 animate-fade-in">
                     {calculatorLinks.map((link) => {
                       return (
                         <Link
