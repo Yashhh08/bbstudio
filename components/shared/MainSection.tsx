@@ -1,7 +1,10 @@
 import React from "react";
+import TaxiSection from "./TaxiSection";
 
 const MainSection = () => {
-  return <div>MainSection</div>;
+  return <div>
+    <TaxiSection />
+  </div>;
 };
 
 export default MainSection;
