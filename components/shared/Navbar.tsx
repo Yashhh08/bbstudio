@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="w-11/12 xl:w-3/4 mx-auto p-4 flex justify-between items-center gap-3">
         <Link href={"/"}>
           <Image
-            src="/assets/images/logo.svg"
+            src="/assets/images/bb-white-logo.svg"
             alt="Bombay Blokes"
             width={214}
             height={31}
