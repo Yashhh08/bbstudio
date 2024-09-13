@@ -34,7 +34,6 @@ const TaxiSection = () => {
         </div>
 
         <div className="absolute bottom-[20%] lg:bottom-[15%] xl:bottom-[20%]">
-        {/* max-sm:top-[58%] max-xl:top-[64%] top-[60%] */}
           <Image
             src={taxi}
             alt="taxi"
