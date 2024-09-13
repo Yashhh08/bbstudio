@@ -64,11 +64,19 @@ const TaxiSection = () => {
         />
       </div>
 
-      <div className="w-[120vw] absolute max-sm:top-[45%] top-[57%] -left-5">
+      {/* <div className="w-[120vw] absolute max-sm:top-[45%] top-[57%] -left-5">
         <Image
           src={road}
           alt="road"
           className="max-sm:scale-125 max-2xl:opacity-0 opacity-100"
+        />
+      </div> */}
+
+      <div className="w-[120vw] absolute bottom-[40%] md:bottom-[30%] lg:bottom-[17%] xl:bottom-[30%] -left-5">
+        <Image
+          src={road}
+          alt="road"
+          className="max-sm:scale-125"
         />
       </div>
 
