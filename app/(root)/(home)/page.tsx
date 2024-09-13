@@ -24,7 +24,9 @@ export default function Home() {
         <>
           <Navbar />
 
-          <MainSection />
+          <section className="flex-1">
+            <MainSection />
+          </section>
 
           <Footer />
         </>
