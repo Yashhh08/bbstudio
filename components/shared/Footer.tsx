@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="w-full xl:w-3/4 mx-auto p-4 flex flex-col justify-between items-center gap-3 absolute bottom-2 left-[50%] translate-x-[-50%]">
-      <div className="flex-col md:flex-row justify-between items-center w-full">
+      <div className="flex flex-col md:flex-row justify-between w-full">
         <Link href={"/"}>
           <Image
             src="/assets/images/bb-yellow-logo.webp"
