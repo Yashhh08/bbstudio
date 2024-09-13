@@ -7,7 +7,7 @@ import station from "@/public/assets/images/station.png";
 
 const TaxiSection = () => {
   return (
-    <div className="overflow-hidden border">
+    <div className="overflow-hidden">
       <div className="relative w-full h-[100vh]">
         <div className="max-sm:w-[100vw] w-[50vw] absolute left-0 max-sm:top-[15%] max-xl:top-[25%] top-[5%]">
           <Image
