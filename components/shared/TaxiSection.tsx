@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React, { useRef } from "react";
 import taxi from "@/public/assets/images/bb-taxi.png";
@@ -73,11 +75,7 @@ const TaxiSection = () => {
       </div> */}
 
       <div className="w-[120vw] absolute bottom-[40%] md:bottom-[30%] lg:bottom-[17%] xl:bottom-[30%] -left-5">
-        <Image
-          src={road}
-          alt="road"
-          className="max-sm:scale-125"
-        />
+        <Image src={road} alt="road" className="max-sm:scale-125" />
       </div>
 
       <div className="absolute bottom-[20%] lg:bottom-[15%] xl:bottom-[20%] left-[20%] md:left-[50%]">
