@@ -77,6 +77,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
           alt="city"
           className="object-cove max-sm:scale-150 max-xl:scale-[2.2] scale-[1.1] translate-x-[150px]"
           ref={cityImageRef}
+          priority
         />
       </div>
 
@@ -86,6 +87,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
           alt="station"
           className="object-cover max-sm:scale-150 max-xl:scale-[2.2] scale-[1.1] translate-x-[300px] md:translate-x-[150px]"
           ref={stationImageRef}
+          priority
         />
       </div>
 
@@ -98,7 +100,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
       </div> */}
 
       <div className="w-[120vw] absolute bottom-[40%] md:bottom-[30%] lg:bottom-[17%] xl:bottom-[30%] -left-5">
-        <Image src={road} alt="road" className="max-sm:scale-125" />
+        <Image src={road} alt="road" className="max-sm:scale-125" priority/>
       </div>
 
       <div className="absolute bottom-[20%] lg:bottom-[15%] xl:bottom-[20%] left-[20%] md:left-[50%]">
@@ -109,6 +111,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
           height={200}
           className="max-sm:scale-[0.9] max-lg:scale-105 -translate-x-[500px] md:-translate-x-[1200px]"
           ref={taxiImageRef}
+          priority
         />
       </div>
 

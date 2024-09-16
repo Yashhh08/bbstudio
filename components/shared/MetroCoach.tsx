@@ -7,7 +7,13 @@ import metroCoach from "@/public/assets/images/metro-coach.png";
 const MetroCoach = () => {
   return (
     <div className="relative h-[70vh] w-[1920px]">
-      <Image src={metroCoach} alt="coach-1" fill className="absolute" />
+      <Image
+        src={metroCoach}
+        alt="coach-1"
+        fill
+        className="absolute"
+        priority
+      />
 
       <video
         width={270}

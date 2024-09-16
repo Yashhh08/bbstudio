@@ -56,6 +56,7 @@ const MetroSection = () => {
             alt="frontEngine"
             fill
             className="absolute"
+            priority
           />
         </div>
 
@@ -64,7 +65,13 @@ const MetroSection = () => {
         <MetroCoach />
 
         <div className="relative h-[70vh] w-[1200px]">
-          <Image src={backEngine} alt="backEngine" fill className="absolute" />
+          <Image
+            src={backEngine}
+            alt="backEngine"
+            fill
+            className="absolute"
+            priority
+          />
         </div>
       </div>
     </div>
