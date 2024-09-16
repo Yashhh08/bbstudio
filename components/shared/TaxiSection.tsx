@@ -9,33 +9,56 @@ import station from "@/public/assets/images/station.png";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { Button } from "../ui/button";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const TaxiSection = () => {
+const TaxiSection = (props: { handleEnter: () => void }) => {
   const containerRef = useRef(null);
   const cityImageRef = useRef(null);
   const stationImageRef = useRef(null);
   const taxiImageRef = useRef(null);
+  const enterButton = useRef(null);
 
   useGSAP(
     () => {
-      gsap.to(cityImageRef.current, {
-        x: 0,
-        duration: 3,
-        ease: "none",
-      });
+      const tl = gsap.timeline({});
 
-      gsap.to(stationImageRef.current, {
-        x: 0,
-        duration: 3,
-        ease: "none",
-      });
+      tl.to(
+        cityImageRef.current,
+        {
+          x: 0,
+          duration: 3,
+          ease: "none",
+        },
+        "-"
+      );
 
-      gsap.to(taxiImageRef.current, {
-        x: 0,
-        duration: 3,
-        ease: "power1.out",
+      tl.to(
+        stationImageRef.current,
+        {
+          x: 0,
+          duration: 3,
+          ease: "none",
+        },
+        "-"
+      );
+
+      tl.to(
+        taxiImageRef.current,
+        {
+          x: 0,
+          duration: 3,
+          ease: "power1.out",
+        },
+        "-"
+      );
+
+      tl.to(enterButton.current, {
+        display: "block",
+        opacity: 1,
+        duration: 1,
+        ease: "power4.in",
       });
     },
     {
@@ -87,6 +110,16 @@ const TaxiSection = () => {
           className="max-sm:scale-[0.9] max-lg:scale-105 -translate-x-[500px] md:-translate-x-[1200px]"
           ref={taxiImageRef}
         />
+      </div>
+
+      <div className="absolute left-[50%] translate-x-[-50%] top-3">
+        <Button
+          ref={enterButton}
+          className="animate-pulse transition-all hidden opacity-0 hover:bg-[#F9B31B] hover:text-black"
+          onClick={props.handleEnter}
+        >
+          Enter Studio
+        </Button>
       </div>
     </div>
   );
