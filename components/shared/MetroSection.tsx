@@ -9,9 +9,35 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import MetroCoach from "./MetroCoach";
 
+const videos = [
+  {
+    brand: "brand1",
+    videos: [
+      {
+        id: "1",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+      {
+        id: "2",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+      {
+        id: "3",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+      {
+        id: "4",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+    ],
+  },
+];
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const MetroSection = () => {
+  const brand1 = videos.find((brand) => brand.brand === "brand1");
+
   const containerWrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -60,9 +86,9 @@ const MetroSection = () => {
           />
         </div>
 
-        <MetroCoach />
+        {brand1 && <MetroCoach brand={brand1.brand} videos={brand1.videos} />}
 
-        <MetroCoach />
+        {brand1 && <MetroCoach brand={brand1.brand} videos={brand1.videos} />}
 
         <div className="relative h-[70vh] w-[1200px]">
           <Image
