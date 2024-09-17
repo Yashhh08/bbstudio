@@ -5,7 +5,7 @@ import TaxiSection from "./TaxiSection";
 import MetroSection from "./MetroSection";
 
 const MainSection = () => {
-  const [enter, setEnter] = useState(true);
+  const [enter, setEnter] = useState(false);
 
   const handleEnter = () => {
     setEnter(true);

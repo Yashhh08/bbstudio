@@ -91,31 +91,33 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
         />
       </div>
 
-      {/* <div className="w-[120vw] absolute max-sm:top-[45%] top-[57%] -left-5">
-        <Image
-          src={road}
-          alt="road"
-          className="max-sm:scale-125 max-2xl:opacity-0 opacity-100"
-        />
-      </div> */}
-
       <div className="w-[120vw] absolute bottom-[40%] md:bottom-[30%] lg:bottom-[17%] xl:bottom-[30%] -left-5">
-        <Image src={road} alt="road" className="max-sm:scale-125" priority/>
+        <Image src={road} alt="road" className="max-sm:scale-125" priority />
       </div>
 
-      <div className="absolute bottom-[20%] lg:bottom-[15%] xl:bottom-[20%] left-[20%] md:left-[50%]">
+      <div className="absolute bottom-[20%] lg:bottom-[15%] xl:bottom-[20%] max-sm:translate-x-[300px] md:left-[50%]">
         <Image
           src={taxi}
           alt="taxi"
           width={400}
           height={200}
-          className="max-sm:scale-[0.9] max-lg:scale-105 -translate-x-[500px] md:-translate-x-[1200px]"
+          className="max-sm:scale-[0.9] max-lg:scale-105 -translate-x-[750px] md:-translate-x-[1200px]"
           ref={taxiImageRef}
           priority
         />
       </div>
 
-      <div className="absolute left-[50%] translate-x-[-50%] top-3">
+      <div className="absolute bottom-[27%] lg:bottom-[23%] xl:bottom-[28%] left-[50%] translate-x-[-50%] md:left-[40%]">
+        <Button
+          ref={enterButton}
+          className="animate-pulse transition-all hidden opacity-0 hover:bg-[#F9B31B] hover:text-black hover:animate-none"
+          onClick={props.handleEnter}
+        >
+          Enter Studio
+        </Button>
+      </div>
+
+      {/* <div className="absolute left-[50%] translate-x-[-50%] top-3">
         <Button
           ref={enterButton}
           className="animate-pulse transition-all hidden opacity-0 hover:bg-[#F9B31B] hover:text-black"
@@ -123,7 +125,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
         >
           Enter Studio
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };
