@@ -61,7 +61,7 @@ const MetroSection = () => {
           start: "10% 0%",
           end: "30% 0%",
           scrub: 1,
-          markers: true,
+          // markers: true,
         },
       });
 
