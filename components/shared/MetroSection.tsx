@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import MetroCoach from "./MetroCoach";
+import { FaAngleDoubleUp } from "react-icons/fa";
 
 const videos = [
   {
@@ -40,6 +41,7 @@ const MetroSection = () => {
 
   const containerWrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollUpRef = useRef<HTMLParagraphElement>(null);
 
   const getScrollWidth = () => {
     if (!containerRef.current) return 0;
@@ -49,6 +51,20 @@ const MetroSection = () => {
 
   useGSAP(
     () => {
+      gsap.to(scrollUpRef.current, {
+        y: -200,
+        opacity: 0,
+        duration: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerWrapperRef.current,
+          start: "10% 0%",
+          end: "30% 0%",
+          scrub: 1,
+          markers: true,
+        },
+      });
+
       const tween = gsap.to(containerRef.current, {
         x: getScrollWidth,
         duration: 3,
@@ -72,6 +88,16 @@ const MetroSection = () => {
 
   return (
     <div ref={containerWrapperRef} className="overflow-hidden">
+      <p
+        ref={scrollUpRef}
+        className="rounded-xl font-medium text-[#F9B31B] bg-black p-2 w-fit text-center m-auto transition-all flex justify-center items-center gap-2"
+      >
+        Scroll up to start the journey
+        <span>
+          <FaAngleDoubleUp className="animate-bounce duration-1000" />
+        </span>
+      </p>
+
       <div
         ref={containerRef}
         className="relative left-0 flex justify-start w-fit"

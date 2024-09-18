@@ -101,7 +101,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
           alt="taxi"
           width={400}
           height={200}
-          className="max-sm:scale-[0.9] max-lg:scale-105 -translate-x-[750px] md:-translate-x-[1200px]"
+          className="max-sm:scale-[0.75] max-lg:scale-105 -translate-x-[750px] md:-translate-x-[1200px]"
           ref={taxiImageRef}
           priority
         />
@@ -110,7 +110,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
       <div className="absolute bottom-[27%] lg:bottom-[23%] xl:bottom-[28%] left-[50%] translate-x-[-50%] md:left-[40%]">
         <Button
           ref={enterButton}
-          className="animate-pulse transition-all hidden opacity-0 hover:bg-[#F9B31B] hover:text-black hover:animate-none"
+          className="animate-pulse transition-all hidden opacity-0 hover:bg-[#F9B31B] hover:text-black hover:animate-none scale-110"
           onClick={props.handleEnter}
         >
           Enter Studio
