@@ -101,7 +101,7 @@ const TaxiSection = (props: { handleEnter: () => void }) => {
           alt="taxi"
           width={400}
           height={200}
-          className="max-sm:scale-[0.75] max-lg:scale-105 -translate-x-[750px] md:-translate-x-[1200px]"
+          className="max-sm:scale-[0.75] max-lg:scale-105 -translate-x-[550px] md:-translate-x-[1200px]"
           ref={taxiImageRef}
           priority
         />
