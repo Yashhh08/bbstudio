@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import metroCoach from "@/public/assets/images/metro-coach.png";
 import { Button } from "../ui/button";
 import { Maximize2, X } from "lucide-react";
+import videoDefault from "@/public/assets/images/video-default.png";
 
 import {
   Dialog,
@@ -14,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
+import { AspectRatio } from "../ui/aspect-ratio";
 interface Props {
   brand: string;
   videos: { id: string; src: string }[];
@@ -44,7 +45,7 @@ const MetroCoach = (props: Props) => {
       {props.videos.map((video, index) => (
         <div
           key={video.id}
-          className={`absolute rounded-3xl overflow-hidden ${
+          className={`absolute rounded-3xl overflow-hidden w-[280px] ${
             index === 0
               ? "left-[6%] top-[15%]"
               : index === 1
@@ -54,40 +55,53 @@ const MetroCoach = (props: Props) => {
               : "right-[6%] top-[15%]"
           }`}
         >
-          <video width={270} autoPlay loop muted className="rounded-3xl">
-            <source src={video.src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                size="icon"
-                variant="secondary"
-                className="absolute bottom-2 right-2 rounded-3xl"
-                onClick={() => handleEnlarge(video.id)}
-              >
-                <Maximize2 className="h-7 w-7 z-1 bg-white p-1 rounded-lg" />
-              </Button>
-            </DialogTrigger>
-
-            <DialogContent className="border-none">
-              <video
-                autoPlay
-                loop
-                controls
-                className="w-full h-full rounded-xl"
-              >
-                <source
-                  src={
-                    props.videos.find((v) => v.id === enlargedVideo)?.src || ""
-                  }
-                  type="video/mp4"
-                />
+          <AspectRatio ratio={1 / 1}>
+            {video.src && video.src.length > 0 ? (
+              <video autoPlay loop muted playsInline className="rounded-3xl">
+                <source src={video.src} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </DialogContent>
-          </Dialog>
+            ) : (
+              <Image
+                src={videoDefault}
+                alt={video.id}
+                className="rounded-3xl object-cover"
+              />
+            )}
+          </AspectRatio>
+
+          {video.src && video.src.length > 0 && (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="icon"
+                  variant="secondary"
+                  className="absolute bottom-2 right-2 rounded-3xl"
+                  onClick={() => handleEnlarge(video.id)}
+                >
+                  <Maximize2 className="h-7 w-7 z-1 bg-white p-1 rounded-lg" />
+                </Button>
+              </DialogTrigger>
+
+              <DialogContent className="border-none h-fit flex justify-center items-center">
+                <video
+                  autoPlay
+                  loop
+                  controls
+                  className="w-full h-full rounded-xl"
+                >
+                  <source
+                    src={
+                      props.videos.find((v) => v.id === enlargedVideo)?.src ||
+                      ""
+                    }
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </DialogContent>
+            </Dialog>
+          )}
         </div>
       ))}
     </div>
