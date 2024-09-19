@@ -90,11 +90,11 @@ const MetroSection = () => {
     <div ref={containerWrapperRef} className="overflow-hidden">
       <p
         ref={scrollUpRef}
-        className="rounded-xl font-medium text-[#F9B31B] bg-black p-2 w-fit text-center m-auto transition-all flex justify-center items-center gap-2"
+        className="rounded-xl font-semibold text-lg underline-offset-8 p-2 w-fit text-center m-auto transition-all flex justify-center items-center gap-2"
       >
         Scroll up to start the journey
         <span>
-          <FaAngleDoubleUp className="animate-bounce duration-1000" />
+          <FaAngleDoubleUp className="size-6 animate-bounce duration-[5s]" />
         </span>
       </p>
 
