@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import frontEngine from "@/public/assets/images/front-engine.png";
 import backEngine from "@/public/assets/images/back-engine.png";
 import { useGSAP } from "@gsap/react";
@@ -9,10 +9,34 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import MetroCoach from "./MetroCoach";
 import { FaAngleDoubleUp } from "react-icons/fa";
+import { Progress } from "../ui/progress";
 
-const videos = [
+const brands = [
   {
-    brand: "brand1",
+    id: "brand1",
+    name: "Brand 1",
+    videos: [
+      {
+        id: "1",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+      {
+        id: "2",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+      {
+        id: "3",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+      {
+        id: "4",
+        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
+      },
+    ],
+  },
+  {
+    id: "brand2",
+    name: "Brand 2",
     videos: [
       {
         id: "1",
@@ -37,7 +61,8 @@ const videos = [
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const MetroSection = () => {
-  const brand1 = videos.find((brand) => brand.brand === "brand1");
+  const [progress, setProgress] = useState(0);
+  // const [activeBrand, setActiveBrand] = useState<string | null>(null);
 
   const containerWrapperRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -80,8 +105,40 @@ const MetroSection = () => {
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          setProgress(Math.round(self.progress * 100));
+          // const scrollPosition = self.progress * getScrollWidth() * -1;
+          // const brandWidth = getScrollWidth() / brands.length;
+          // const activeBrandIndex = Math.floor(scrollPosition / brandWidth);
+          // setActiveBrand(brands[activeBrandIndex]?.id || null);
+        },
         // markers: true,
       });
+
+      // brands.forEach((brand, index) => {
+      //   ScrollTrigger.create({
+      //     trigger: containerRef.current,
+      //     start: `left-=${index * (getScrollWidth() / brands.length)} center`,
+      //     end: `left-=${
+      //       (index + 1) * (getScrollWidth() / brands.length)
+      //     } center`,
+      //     onEnter: () => setActiveBrand(brand.id),
+      //     onEnterBack: () => setActiveBrand(brand.id),
+      //   });
+      // });
+
+      // brands.forEach((brand, index) => {
+      //   const startPosition = (index / brands.length) * 100;
+      //   const endPosition = ((index + 1) / brands.length) * 100;
+
+      //   ScrollTrigger.create({
+      //     trigger: containerRef.current,
+      //     start: `left-=${startPosition}% center`,
+      //     end: `left-=${endPosition}% center`,
+      //     onEnter: () => setActiveBrand(brand.id),
+      //     onEnterBack: () => setActiveBrand(brand.id),
+      //   });
+      // });
     },
     { scope: containerWrapperRef }
   );
@@ -100,7 +157,7 @@ const MetroSection = () => {
 
       <div
         ref={containerRef}
-        className="relative left-0 flex justify-start w-fit"
+        className="relative left-0 flex justify-start w-fit -top-7"
       >
         <div className="relative h-[70vh] w-[1200px]">
           <Image
@@ -112,9 +169,14 @@ const MetroSection = () => {
           />
         </div>
 
-        {brand1 && <MetroCoach brand={brand1.brand} videos={brand1.videos} />}
-
-        {brand1 && <MetroCoach brand={brand1.brand} videos={brand1.videos} />}
+        {brands.map((brand, index) => (
+          <div key={brand.id} className="relative">
+            <MetroCoach brand={brand.id} videos={brand.videos} />
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-whit bg-opacity-80 px-4 py-2 rounded-t-lg">
+              <span className={`text-2xl font-medium`}>{brand.name}</span>
+            </div>
+          </div>
+        ))}
 
         <div className="relative h-[70vh] w-[1200px]">
           <Image
@@ -126,6 +188,11 @@ const MetroSection = () => {
           />
         </div>
       </div>
+
+      <Progress
+        value={progress}
+        className="fixed bottom-0 left-3 right-3 bg-transparent"
+      />
     </div>
   );
 };
