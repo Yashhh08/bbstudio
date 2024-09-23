@@ -14,20 +14,20 @@ export const brands = [
       },
       {
         id: "3",
-        src: "./assets/videos/Shining-Jewels/CSE.mp4",
+        src: "https://cdn.shopify.com/videos/c/o/v/c31e7b0f7e7846e69186c28f19121853.mp4",
       },
       {
         id: "4",
-        src: "./assets/videos/Shining-Jewels/Rose-necklace.mp4",
+        src: "https://cdn.shopify.com/videos/c/o/v/19b0454e4ea1450ab336135569feb280.mp4",
       },
 
       // {
       //   id: "3",
-      //   src: "https://cdn.shopify.com/videos/c/o/v/c31e7b0f7e7846e69186c28f19121853.mp4",
+      //   src: "./assets/videos/Shining-Jewels/CSE.mp4",
       // },
       // {
       //   id: "4",
-      //   src: "https://cdn.shopify.com/videos/c/o/v/19b0454e4ea1450ab336135569feb280.mp4",
+      //   src: "./assets/videos/Shining-Jewels/Rose-necklace.mp4",
       // },
     ],
   },
