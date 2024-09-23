@@ -8,7 +8,7 @@ import Navbar from "@/components/shared/Navbar";
 import { useState } from "react";
 
 export default function Home() {
-  const [loadingAnimationComplete, setLoadingAnimation] = useState(false);
+  const [loadingAnimationComplete, setLoadingAnimation] = useState(true);
 
   const loadingAnimationHandler = (value: boolean) => {
     setLoadingAnimation(value);
