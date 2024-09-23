@@ -16,8 +16,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { AspectRatio } from "../ui/aspect-ratio";
+import { brands } from "@/constants/brands";
 interface Props {
-  brand: string;
+  brand1: string;
+  brand2: string;
   videos: { id: string; src: string }[];
 }
 
@@ -42,6 +44,21 @@ const MetroCoach = (props: Props) => {
         priority
       />
 
+      <p
+        className={`absolute ${
+          props.brand1.length > 7 ? "left-[19%]" : "left-[22%]"
+        } bottom-[20%] text-2xl font-semibold`}
+      >
+        {props.brand1}
+      </p>
+      <p
+        className={`absolute ${
+          props.brand2.length > 7 ? "right-[19%]" : "right-[22%]"
+        } bottom-[20%] text-2xl font-semibold`}
+      >
+        {props.brand2}
+      </p>
+
       {props.videos.map((video, index) => (
         <div
           key={video.id}
@@ -57,7 +74,7 @@ const MetroCoach = (props: Props) => {
         >
           <AspectRatio ratio={1 / 1}>
             {video.src && video.src.length > 0 ? (
-              <video autoPlay loop muted playsInline className="rounded-3xl">
+              <video height={"full"} width={"full"} autoPlay loop muted playsInline className="rounded-3xl">
                 <source src={video.src} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>

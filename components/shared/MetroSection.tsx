@@ -10,53 +10,7 @@ import { ScrollTrigger } from "gsap/all";
 import MetroCoach from "./MetroCoach";
 import { FaAngleDoubleUp } from "react-icons/fa";
 import { Progress } from "../ui/progress";
-
-const brands = [
-  {
-    id: "brand1",
-    name: "Brand 1",
-    videos: [
-      {
-        id: "1",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-      {
-        id: "2",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-      {
-        id: "3",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-      {
-        id: "4",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-    ],
-  },
-  {
-    id: "brand2",
-    name: "Brand 2",
-    videos: [
-      {
-        id: "1",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-      {
-        id: "2",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-      {
-        id: "3",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-      {
-        id: "4",
-        src: "https://cdn.shopify.com/videos/c/o/v/0215a395de3f41c3987a38fcf0f243a7.mp4",
-      },
-    ],
-  },
-];
+import { brands } from "@/constants/brands";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -171,10 +125,14 @@ const MetroSection = () => {
 
         {brands.map((brand, index) => (
           <div key={brand.id} className="relative">
-            <MetroCoach brand={brand.id} videos={brand.videos} />
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-whit bg-opacity-80 px-4 py-2 rounded-t-lg">
-              <span className={`text-2xl font-medium`}>{brand.name}</span>
-            </div>
+            <MetroCoach
+              brand1={brand.brand1}
+              brand2={brand.brand2}
+              videos={brand.videos}
+            />
+            {/* <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-whit bg-opacity-80 px-4 py-2 rounded-t-lg">
+              <span className={`text-2xl font-medium`}>{brand.brand1}</span>
+            </div> */}
           </div>
         ))}
 
