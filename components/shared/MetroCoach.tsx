@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import metroCoach from "@/public/assets/images/metro-coach.png";
 import { Button } from "../ui/button";
 import { Maximize2, X } from "lucide-react";
@@ -25,6 +25,36 @@ interface Props {
 
 const MetroCoach = (props: Props) => {
   const [enlargedVideo, setEnlargedVideo] = useState(null);
+  const [loadedVideos, setLoadedVideos] = useState<{ [key: string]: boolean }>(
+    {}
+  );
+
+  useEffect(() => {
+    const videoElements = props.videos.map((video) => {
+      if (video.src && video.src.length > 0) {
+        const videoElement = document.createElement("video");
+        videoElement.src = video.src;
+        videoElement.preload = "auto";
+        videoElement.muted = true;
+        videoElement.playsInline = true;
+
+        videoElement.oncanplaythrough = () => {
+          setLoadedVideos((prev) => ({ ...prev, [video.id]: true }));
+        };
+
+        return videoElement;
+      }
+      return null;
+    });
+
+    return () => {
+      videoElements.forEach((element) => {
+        if (element) {
+          element.oncanplaythrough = null;
+        }
+      });
+    };
+  }, [props.videos]);
 
   const handleEnlarge = (videoId: any) => {
     setEnlargedVideo(videoId);
@@ -74,10 +104,31 @@ const MetroCoach = (props: Props) => {
         >
           <AspectRatio ratio={1 / 1}>
             {video.src && video.src.length > 0 ? (
-              <video height={"full"} width={"full"} autoPlay loop muted playsInline className="rounded-3xl">
-                <source src={video.src} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="relative w-full h-full">
+                <div
+                  className={`absolute inset-0 bg-gray-200 animate-pulse ${
+                    loadedVideos[video.id]
+                      ? "hidden"
+                      : "flex items-center justify-center"
+                  }`}
+                >
+                  <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                <video
+                  height="full"
+                  width="full"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className={`rounded-3xl object-cover ${
+                    loadedVideos[video.id] ? "" : "invisible"
+                  }`}
+                >
+                  <source src={video.src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             ) : (
               <Image
                 src={videoDefault}
