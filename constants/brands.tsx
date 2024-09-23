@@ -13,11 +13,11 @@ export const brands = [
         src: "https://cdn.shopify.com/videos/c/o/v/8ed5bc9df8564bfebea22e636d535dba.mp4",
       },
       {
-        id: "1",
+        id: "3",
         src: "./assets/videos/Shining-Jewels/CSE.mp4",
       },
       {
-        id: "2",
+        id: "4",
         src: "./assets/videos/Shining-Jewels/Rose-necklace.mp4",
       },
 
