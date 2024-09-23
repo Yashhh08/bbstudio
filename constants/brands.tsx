@@ -7,18 +7,22 @@ export const brands = [
       {
         id: "1",
         src: "https://cdn.shopify.com/videos/c/o/v/60d37f2088264bfdbbbea6ddd67c7c21.mp4",
+        poster: "./assets/images/c1v1.png",
       },
       {
         id: "2",
         src: "https://cdn.shopify.com/videos/c/o/v/8ed5bc9df8564bfebea22e636d535dba.mp4",
+        poster: "./assets/images/c1v2.png",
       },
       {
         id: "3",
         src: "https://cdn.shopify.com/videos/c/o/v/c31e7b0f7e7846e69186c28f19121853.mp4",
+        poster: "./assets/images/c1v3.png",
       },
       {
         id: "4",
         src: "https://cdn.shopify.com/videos/c/o/v/19b0454e4ea1450ab336135569feb280.mp4",
+        poster: "./assets/images/c1v4.png",
       },
 
       // {
@@ -39,18 +43,22 @@ export const brands = [
       {
         id: "1",
         src: "https://cdn.shopify.com/videos/c/o/v/1dfb19809e43426eb50c2a1cc4b606f2.mov",
+        poster: "./assets/images/c2v1.png",
       },
       {
         id: "2",
         src: "https://cdn.shopify.com/videos/c/o/v/6d451ac036a4420ab3bff82c938f8d4f.mov",
+        poster: "./assets/images/c2v2.png",
       },
       {
         id: "3",
         src: "https://cdn.shopify.com/videos/c/o/v/f4ce86f26cc94097bfe93f550ff3f035.mp4",
+        poster: "./assets/images/c2v3.png",
       },
       {
         id: "4",
         src: "https://cdn.shopify.com/videos/c/o/v/ca8f5788d263406d8889ca7ae39b5a26.mp4",
+        poster: "./assets/images/c2v4.png",
       },
     ],
   },
@@ -62,18 +70,22 @@ export const brands = [
       {
         id: "1",
         src: "https://cdn.shopify.com/videos/c/o/v/e57a42086e794289bc9882e776cb7b03.mp4",
+        poster: "./assets/images/c3v1.png",
       },
       {
         id: "2",
         src: "https://cdn.shopify.com/videos/c/o/v/0d94cc7607df4bb4b098265ff782e54b.mp4",
+        poster: "./assets/images/c3v2.png",
       },
       {
         id: "3",
         src: "https://cdn.shopify.com/videos/c/o/v/139ad94b86c84219841bfc4f3b40839e.mp4",
+        poster: "./assets/images/c3v3.png",
       },
       {
         id: "4",
-        src: "https://cdn.shopify.com/videos/c/o/v/ca8f5788d263406d8889ca7ae39b5a26.mp4",
+        src: "https://cdn.shopify.com/videos/c/o/v/20416815322f41528fb958ef86062651.mp4",
+        poster: "./assets/images/c3v4.png",
       },
     ],
   },

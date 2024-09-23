@@ -20,7 +20,7 @@ import { brands } from "@/constants/brands";
 interface Props {
   brand1: string;
   brand2: string;
-  videos: { id: string; src: string }[];
+  videos: { id: string; src: string; poster: string }[];
 }
 
 const MetroCoach = (props: Props) => {
@@ -121,8 +121,9 @@ const MetroCoach = (props: Props) => {
                   loop
                   muted
                   playsInline
+                  poster={video.poster ? video.poster : "./assets/images/video-default.png"}
                   className={`rounded-3xl object-cover ${
-                    loadedVideos[video.id] ? "" : "invisibl"
+                    loadedVideos[video.id] ? "" : "invisible"
                   }`}
                   onMouseEnter={(e) => {
                     e.currentTarget.play();
