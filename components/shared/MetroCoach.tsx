@@ -121,8 +121,9 @@ const MetroCoach = (props: Props) => {
                   loop
                   muted
                   playsInline
+                  poster={"./assets/images/video-default.png"}
                   className={`rounded-3xl object-cover ${
-                    loadedVideos[video.id] ? "" : "invisible"
+                    loadedVideos[video.id] ? "" : "invisibl"
                   }`}
                 >
                   <source src={video.src} type="video/mp4" />
