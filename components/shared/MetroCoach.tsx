@@ -117,20 +117,24 @@ const MetroCoach = (props: Props) => {
                 <video
                   height="full"
                   width="full"
-                  // autoPlay
+                  autoPlay
                   loop
                   muted
                   playsInline
-                  poster={video.poster ? video.poster : "./assets/images/video-default.png"}
+                  poster={
+                    video.poster
+                      ? video.poster
+                      : "./assets/images/video-default.png"
+                  }
                   className={`rounded-3xl object-cover ${
                     loadedVideos[video.id] ? "" : "invisible"
                   }`}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.play();
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.pause();
-                  }}
+                  // onMouseEnter={(e) => {
+                  //   e.currentTarget.play();
+                  // }}
+                  // onMouseLeave={(e) => {
+                  //   e.currentTarget.pause();
+                  // }}
                 >
                   <source src={video.src} type="video/mp4" />
                   Your browser does not support the video tag.
