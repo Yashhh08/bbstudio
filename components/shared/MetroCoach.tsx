@@ -34,7 +34,7 @@ const MetroCoach = (props: Props) => {
       if (video.src && video.src.length > 0) {
         const videoElement = document.createElement("video");
         videoElement.src = video.src;
-        videoElement.preload = "none";
+        videoElement.preload = "auto";
         videoElement.muted = true;
         videoElement.playsInline = true;
 
